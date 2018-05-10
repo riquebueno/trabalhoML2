@@ -2,11 +2,11 @@ TO DO
 - Ler enunciado do trabalho no classroom.
 - Estudar dataset.
 - Configurações
-      - Instalar as bibliotecas: pillow, lxml, jupyter e matplotlib
-      - Baixar e extrair zip: https://github.com/tensorflow/models
-      - Entrar na pasta "/models-master/research" e executar o comando "protoc object_detection/protos/*.proto --python_out=."
-      - Na pasta "/models-master/research/object_detection" abri o Jupyter "object_detection_tutorial.ipynb"
-      - Executar e a saída será um cachorro ;)
+      -- Instalar as bibliotecas: pillow, lxml, jupyter e matplotlib
+      -- Baixar e extrair zip: https://github.com/tensorflow/models
+      -- Entrar na pasta "/models-master/research" e executar o comando "protoc object_detection/protos/*.proto --python_out=."
+      -- Na pasta "/models-master/research/object_detection" abri o Jupyter "object_detection_tutorial.ipynb"
+      -- Executar e a saída será um cachorro ;)
       
 # observações
 - todas as imagens possuem um celular
