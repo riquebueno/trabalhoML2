@@ -9,6 +9,7 @@ TO DO
       -- Executar e a saída será um cachorro ;)
 - Abrir Jupyter com "jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000"
 - {'id': 77, 'name': 'cell phone'}
+- [ymin, xmin, ymax, xmax]
 
 # observações
 - todas as imagens possuem um celular
