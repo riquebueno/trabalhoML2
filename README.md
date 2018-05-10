@@ -1,5 +1,8 @@
 TO DO
-- Ler enunciado do trabalho no classroom.
+- IDENTIFICAR QUANTAS ENTRADAS EU CONSIGO IDENTIFICAR COM CELULAR E QUANTAS EU NAO IDENTIFICO.
+- DEPOIS DISSO, PARA AQUELAS QUE EU CONSIGO, VERIFICAR AS DISTANCIAS.
+
+
 - Estudar dataset.
 - Configurações
       -- Instalar as bibliotecas: pillow, lxml, jupyter e matplotlib
