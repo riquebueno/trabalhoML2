@@ -7,7 +7,8 @@ TO DO
       -- Entrar na pasta "/models-master/research" e executar o comando "protoc object_detection/protos/*.proto --python_out=."
       -- Na pasta "/models-master/research/object_detection" abri o Jupyter "object_detection_tutorial.ipynb"
       -- Executar e a saída será um cachorro ;)
-      
+- Abrir Jupyter com "jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000"
+
 # observações
 - todas as imagens possuem um celular
 - labels.txt armazena a base de treinamentos com 129 (nomeDaImagem.jpg x y)
