@@ -8,6 +8,7 @@ TO DO
       -- Na pasta "/models-master/research/object_detection" abri o Jupyter "object_detection_tutorial.ipynb"
       -- Executar e a saída será um cachorro ;)
 - Abrir Jupyter com "jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000"
+- {'id': 77, 'name': 'cell phone'}
 
 # observações
 - todas as imagens possuem um celular
