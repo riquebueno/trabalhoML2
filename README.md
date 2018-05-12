@@ -5,6 +5,14 @@ TO DO
 - Marcar as imagens do dataset.
 - Ver video 3.
 
+- baixar https://github.com/tzutalin/labelImg
+- extrair o zip, entrar na pasta e executar 
+- make qt5py3
+- python labelImg.py
+- baixar https://github.com/datitran/raccoon_dataset
+- pegar arquivo https://raw.githubusercontent.com/datitran/raccoon_dataset/master/xml_to_csv.py
+
+PAREI AQUI https://pythonprogramming.net/creating-tfrecord-files-tensorflow-object-detection-api-tutorial/ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 - Estudar dataset.
 - Configurações
