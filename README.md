@@ -29,6 +29,10 @@ TO DO
 And...
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 - copiar training/object-detection.pbtxt para dentro da pasta object-detection/data
+- ESTA TREINANDO
+- QUERO ACOMPANHAR COM TENSOR BOARD
+- conda install -c anaconda tensorflow-tensorboard
+
 
 
 
