@@ -18,6 +18,26 @@ TO DO
 - para gerar .record a partir do .csv faca: 
 --python3 generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record
 --python3 generate_tfrecord.py --csv_input=data/test_labels.csv --output_path=data/test.record
+- Criar o arquivo "ssd_mobilenet_v1_pets.config" e colocar dentro
+- curl -O http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz
+- Put the config in the training directory, and extract the ssd_mobilenet_v1 in the models/object_detection directory
+- copiar as pastas abaixo para models/object_detection: data, images, ssd..., training
+- rodei deu erro: pandas.core.computation' has no attribute 'expressions
+- executei: conda update dask
+- outro erro: ModuleNotFoundError: No module named 'deployment'
+- dentro de research rodar: protoc object_detection/protos/*.proto --python_out=.
+And...
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+- copiar training/object-detection.pbtxt para dentro da pasta object-detection/data
+
+
+
+
+
+
+
+
+
 
 PAREI AQUI https://pythonprogramming.net/creating-tfrecord-files-tensorflow-object-detection-api-tutorial/ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
