@@ -10,9 +10,17 @@ TO DO
 - make qt5py3
 - python labelImg.py
 - baixar https://github.com/datitran/raccoon_dataset
-- pegar arquivo https://raw.githubusercontent.com/datitran/raccoon_dataset/master/xml_to_csv.py
+- Marcar todas as imagens com o programa https://github.com/tzutalin/labelImg. Ele gera arquivos xml para todas as imagens com as coordenadas do box desenhado.
+- Agora vou converter o xml para csv. Pegar arquivo https://raw.githubusercontent.com/datitran/raccoon_dataset/master/xml_to_csv.py
+- arquivos xml convertidos para a pasta data/train e data/test. Coloquei train e test iguais.
+- peguei o arquivo https://raw.githubusercontent.com/datitran/raccoon_dataset/master/generate_tfrecord.py e alterei o label racoon para celular
+- dentro de research rodar "sudo python3 setup.py install"
+- para gerar .record a partir do .csv faca: 
+--python3 generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record
+--python3 generate_tfrecord.py --csv_input=data/test_labels.csv --output_path=data/test.record
 
 PAREI AQUI https://pythonprogramming.net/creating-tfrecord-files-tensorflow-object-detection-api-tutorial/ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 - Estudar dataset.
 - Configurações
