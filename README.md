@@ -49,7 +49,13 @@ python3 export_inference_graph.py \
 - Next, we can just delete the entire Download Model section, since we don't need to download anymore.
 - RESULTADOS
 - checkpoint 1241 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.005: 0.0
-
+- 
+- 
+- 
+- 
+- CONTINUAR TREINANDO A REDE E PERIODICAMENTE TESTAR DESEMPENHO
+- SEPARAR CÓDIGO EM 2 SCRIPTS PYTHON
+- ESCREVER RELATÓRIO
 
 
 
