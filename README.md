@@ -48,8 +48,8 @@ python3 export_inference_graph.py \
 - Booting up jupyter notebook and opening the object_detection_tutorial.ipynb, let's make a few changes. First, head to the Variables section, and let's change the model name, and the paths to the checkpoint and the labels:
 - Next, we can just delete the entire Download Model section, since we don't need to download anymore.
 - RESULTADOS
-- checkpoint 1241 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.005: 0.0
-- checkpoint 2355 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.05: 0.0
+- DESCARTAR checkpoint 1241 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.005: 0.0
+- checkpoint 2355 % sim: 1.0 % nao: 0.0 % sim com distancia < 0.05: 0.0
 - checkpoint 
 - checkpoint 
 - checkpoint 
