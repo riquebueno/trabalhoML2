@@ -44,10 +44,12 @@ python3 export_inference_graph.py \
     --input_type image_tensor \
     --pipeline_config_path training/ssd_mobilenet_v1_pets.config \
     --trained_checkpoint_prefix training/model.ckpt-1241 \
-    --output_directory celular_inference_graph_20180513
-- I copied some of my models/object_detection/images/test images into the models/object_detection/test_images directory, and renamed them to be image3.jpg, image4.jpg...etc.
-- cp images/*.jpg test_images/
-- 
+    --output_directory celular_inference_graph
+- Booting up jupyter notebook and opening the object_detection_tutorial.ipynb, let's make a few changes. First, head to the Variables section, and let's change the model name, and the paths to the checkpoint and the labels:
+- Next, we can just delete the entire Download Model section, since we don't need to download anymore.
+- RESULTADOS
+- checkpoint 1241 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.005: 0.0
+
 
 
 
