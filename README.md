@@ -1,6 +1,9 @@
 TO DO
 - IDENTIFICAR QUANTAS ENTRADAS EU CONSIGO IDENTIFICAR COM CELULAR E QUANTAS EU NAO IDENTIFICO (52% do total).
 - DEPOIS DISSO, PARA AQUELAS QUE EU CONSIGO, VERIFICAR AS DISTANCIAS (2% do total).
+% sim: 0.5193798449612403
+% nao: 0.4806201550387597
+% sim com distancia < 0.005: 0.023255813953488372
 - Precisarei partir para treinar a rede.
 - Marcar as imagens do dataset.
 - Ver video 3.
@@ -32,7 +35,19 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 - ESTA TREINANDO
 - QUERO ACOMPANHAR COM TENSOR BOARD
 - conda install -c anaconda tensorflow-tensorboard
-
+- python -m tensorboard.main --logdir='training'
+- acessar http://mbp-de-henrique.lan:6006/
+---------------AGORA PRECISO EXPORTAR O MODELO E TESTA-LO---------------------
+- dentro de research rodar: export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+- dentro do object-detection: 
+python3 export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path training/ssd_mobilenet_v1_pets.config \
+    --trained_checkpoint_prefix training/model.ckpt-1241 \
+    --output_directory celular_inference_graph_20180513
+- I copied some of my models/object_detection/images/test images into the models/object_detection/test_images directory, and renamed them to be image3.jpg, image4.jpg...etc.
+- cp images/*.jpg test_images/
+- 
 
 
 
