@@ -51,9 +51,9 @@ python3 export_inference_graph.py \
 - DESCARTAR checkpoint 1241 % sim: 0.0 % nao: 1.0 % sim com distancia < 0.005: 0.0
 - checkpoint 2355 % sim: 1.0 % nao: 0.0 % sim com distancia < 0.05: 0.0
 - checkpoint 8087 % sim: 1.0 % nao: 0.0 % sim com distancia < 0.05: 0.015503875968992248
-- checkpoint 
-- checkpoint 
-- CONTINUAR TREINANDO A REDE E PERIODICAMENTE TESTAR DESEMPENHO
+- checkpoint 14171 % sim: 1.0 % nao: 0.0 % sim com distancia < 0.05: 0.007751937984496124
+- checkpoint 16767 % sim: 1.0 129 % nao: 0.0 0 % sim com distancia < 0.05: 0.9922480620155039 128
+- ok CONTINUAR TREINANDO A REDE E PERIODICAMENTE TESTAR DESEMPENHO
 - SEPARAR CÓDIGO EM 2 SCRIPTS PYTHON
 - ESCREVER RELATÓRIO
 
