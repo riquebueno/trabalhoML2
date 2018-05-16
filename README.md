@@ -56,10 +56,10 @@ python3 export_inference_graph.py \
 - ok CONTINUAR TREINANDO A REDE E PERIODICAMENTE TESTAR DESEMPENHO
 - SEPARAR CÓDIGO EM 2 SCRIPTS PYTHON
 - script celularDetection.py
-    -- ok versão zero criada
+    -- ok criar versão zero
     -- alterar forma de receber parâmetros
 - script celularTraining.py
-    -- croar versão zero
+    -- ok criar versão zero
     -- alterar forma de receber parametros
 - EMPACOTAR OS 2 SCRIPTS E OS OUTROS ARQUIVOS
 - RENOMEAR OS 2 SCRIPTS
