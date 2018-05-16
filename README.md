@@ -55,6 +55,14 @@ python3 export_inference_graph.py \
 - checkpoint 16767 % sim: 1.0 129 % nao: 0.0 0 % sim com distancia < 0.05: 0.9922480620155039 128
 - ok CONTINUAR TREINANDO A REDE E PERIODICAMENTE TESTAR DESEMPENHO
 - SEPARAR CÓDIGO EM 2 SCRIPTS PYTHON
+- script celularDetection.py
+- ok versão zero criada
+- alterar forma de receber parâmetros
+- script celularTraining.py
+- croar versão zero
+- alterar forma de receber parametros
+- EMPACOTAR OS 2 SCRIPTS E OS OUTROS ARQUIVOS
+- RENOMEAR OS 2 SCRIPTS
 - ESCREVER RELATÓRIO
 
 
