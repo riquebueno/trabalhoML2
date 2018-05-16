@@ -32,6 +32,8 @@ TO DO
 And...
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 - copiar training/object-detection.pbtxt para dentro da pasta object-detection/data
+- comando para treinar: python3 train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_pets.config
+- detalhes para treinar em https://pythonprogramming.net/training-custom-objects-tensorflow-object-detection-api-tutorial/?completed=/creating-tfrecord-files-tensorflow-object-detection-api-tutorial/
 - ESTA TREINANDO
 - QUERO ACOMPANHAR COM TENSOR BOARD
 - conda install -c anaconda tensorflow-tensorboard
