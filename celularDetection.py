@@ -19,6 +19,7 @@ Created on Tue May 15 21:46:36 2018
 import numpy as np
 import math
 import os
+import sys
 import six.moves.urllib as urllib
 import sys
 import tarfile
@@ -104,10 +105,28 @@ def load_image_into_numpy_array(image):
 # image2.jpg
 # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
 #PATH_TO_TEST_IMAGES_DIR = 'test_images'
-PATH_TO_TEST_IMAGES_DIR = '/Users/henriquebueno/DOUTORADO/2018.01/ml/trabalho2/find_phone_data'
+
+PATH_TO_TEST_IMAGES_DIR = str(sys.argv[1])#tem que ser o caminho completo
+#PATH_TO_TEST_IMAGES_DIR = '/Users/henriquebueno/DOUTORADO/2018.01/ml/trabalho2/find_phone_data'
 #TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
-TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}.jpg'.format(i)) for i in [0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,23,24,25,26,27,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134] ]
+
+directory = os.fsencode(PATH_TO_TEST_IMAGES_DIR)
+listaDeArquivos = list()
+for file in os.listdir(directory):
+    filename = os.fsdecode(file)
+    if filename.endswith(".jpg"):
+        #listaDeArquivos.append(os.path.join(directory, filename))
+        listaDeArquivos.append(filename)
+        continue
+    else:
+        continue
+
+TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}'.format(i)) for i in listaDeArquivos ]
+#TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}.jpg'.format(i)) for i in [0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,23,24,25,26,27,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134] ]
 #TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}.jpg'.format(i)) for i in [0,1] ]
+
+
+
 
 # Size, in inches, of the output images.
 #IMAGE_SIZE = (12, 8)
@@ -196,70 +215,10 @@ def temTelefone(detection_boxes1, detection_classes1, detection_scores1, fileNam
     
     return xEstimado, yEstimado
 
-#carrega o arquivo com o nome dos arquivos e as coordenadas dos celulares em cada
-#arquivo em uma matriz onde cada linha é um registro do arquivo labels.txt e cada
-#linha tem 3 valores: NOME_ARQUIVO X Y
-#ATENCAO: os 3 valores de cada linha sao armazenados como string
-def carregaArquivo(arquivo):
-
-    #abre o arquivo
-    file = open(arquivo, "r")
-
-    #le todas as linhas
-    linhas=file.readlines()
-    
-    #fecha arquivo
-    file.close()
-
-    return linhas
-
-#Funcao que recebe como entrada um array com os registros de entrada e um
-#string com o NOME_ARQ. O retorno é a posicao do arquivo NOME_ARQ em registros.
-#Caso ele não encontre o nome, ele retorna -1
-def localiza_X_e_Y(linhas, nomeArquivo):
-    indiceLinha = -1
-    xRetorno = -1
-    yRetorno = -1
-    
-    pos=0
-    for linha in linhas:
-        temp = linha.split()
-        nome=temp[0]
-        nome = PATH_TO_TEST_IMAGES_DIR+"/" + nome
-        #print(nome)
-        if(nome==nomeArquivo):
-            indiceLinha = pos
-            break
-        pos+=1
-        
-    if(indiceLinha != -1):
-        linha = linhas[pos]
-        linhaTokenizada = linha.split()
-        xRetorno=float(linhaTokenizada[1])
-        yRetorno=float(linhaTokenizada[2])
-        
-    return xRetorno, yRetorno
-
-#calculo de distancia
-def distancia(x1,y1,x2,y2):
-     dist = ((x1 - x2)**2 + (y1-y2)**2)**.5 
-     return dist
 
 ######################################################################################
 #predicao ############################################################################
 ######################################################################################
-
-arquivo = "/Users/henriquebueno/DOUTORADO/2018.01/ml/trabalho2/labels.txt"
-linhas = carregaArquivo(arquivo)
-#pos = localizaArquivoEmLinhas(linhas, "129.jpg")
-#print(pos)
-#linha = linhas[pos]
-#linhaTokenizada = linha.split()
-#print(linhaTokenizada)
-
-sim = 0
-nao = 0
-simComDistancia=0
 
 for image_path in TEST_IMAGE_PATHS:
   image = Image.open(image_path)
@@ -281,21 +240,8 @@ for image_path in TEST_IMAGE_PATHS:
     #print("Não: " + str(image.filename))
     print("NAO")
     nao+=1
-  else:
-    #vai consultar o arquivo do professor com as coordenadas para encontrar as coord
-    #corretas de image.filename. Atencao: o nome do arquivo tem que estar completo com a pasta
-    xCorreto, yCorreto = localiza_X_e_Y(linhas, image.filename)
-    
-    dist = distancia(xEstimado,yEstimado,xCorreto,yCorreto)
-    if(dist<0.05):
-        simComDistancia+=1
-    
+  else: 
     #print("Sim: " + str(image.filename) + " x, y= " + str(xEstimado) + "-" + str(yEstimado))
-    print("SIM " + str(dist) + " xEst " + str(xEstimado) + " yEst " + str(yEstimado) + " xCorr " + str(xCorreto) + " yCorr " + str(yCorreto) + image_path)
-    sim+=1
+    print("SIM " + "xEst " + str(xEstimado) + " yEst " + str(yEstimado) + str(image_path))
     
-print("% sim: " + str(sim/(sim+nao)) + " " + str(sim))
-print("% nao: " + str(nao/(sim+nao)) + " " + str(nao))
-print("% sim com distancia < 0.05: " + str(simComDistancia/(sim+nao)) + " " + str(simComDistancia))
-
 print("acabou")
