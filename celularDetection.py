@@ -17,18 +17,9 @@ Created on Tue May 15 21:46:36 2018
 
 #IMPORTS =============================================================================
 import numpy as np
-import math
 import os
 import sys
-import six.moves.urllib as urllib
-import sys
-import tarfile
 import tensorflow as tf
-import zipfile
-
-from collections import defaultdict
-from io import StringIO
-from matplotlib import pyplot as plt
 from PIL import Image
 
 # This is needed since the notebook is stored in the object_detection folder.
@@ -45,7 +36,6 @@ if tf.__version__ < '1.4.0':
 #Object detection imports =============================================================================
 #Here are the imports from the object detection module.
 from utils import label_map_util
-from utils import visualization_utils as vis_util
 
 #==============================================================================
 #==============================================================================
@@ -100,38 +90,20 @@ def load_image_into_numpy_array(image):
 #Detection
 #==============================================================================
 #==============================================================================
-# For the sake of simplicity we will use only 2 images:
-# image1.jpg
-# image2.jpg
-# If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-#PATH_TO_TEST_IMAGES_DIR = 'test_images'
 
 PATH_TO_TEST_IMAGES_DIR = str(sys.argv[1])#tem que ser o caminho completo
-#PATH_TO_TEST_IMAGES_DIR = '/Users/henriquebueno/DOUTORADO/2018.01/ml/trabalho2/find_phone_data'
-#TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3) ]
 
 directory = os.fsencode(PATH_TO_TEST_IMAGES_DIR)
 listaDeArquivos = list()
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     if filename.endswith(".jpg"):
-        #listaDeArquivos.append(os.path.join(directory, filename))
         listaDeArquivos.append(filename)
         continue
     else:
         continue
 
 TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}'.format(i)) for i in listaDeArquivos ]
-#TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}.jpg'.format(i)) for i in [0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,23,24,25,26,27,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134] ]
-#TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, '{}.jpg'.format(i)) for i in [0,1] ]
-
-
-
-
-# Size, in inches, of the output images.
-#IMAGE_SIZE = (12, 8)
-#IMAGE_SIZE = (490, 326)
-IMAGE_SIZE = (5, 5)
 
 #metodo principal que faz a inferencia de uma imagem com base em um grafo pre treinado
 def run_inference_for_single_image(image, graph):
@@ -195,26 +167,15 @@ def temTelefone(detection_boxes1, detection_classes1, detection_scores1, fileNam
     indice = np.argmax(detection_scores1)
     box = detection_boxes1[indice]
 
-    #im_width=490
-    #im_height=326
-    
-    #print("(left, right, top, bottom) = (xmin * im_width, xmax * im_width, ymin * im_height, ymax * im_height)")
-    #print("box: " + str(box))
-    
     ymin = box[0]
     xmin = box[1]
     ymax = box[2]
     xmax = box[3]
-    #print("(xmin, xmax, ymin, ymax)")
-    #print(xmin, xmax, ymin, ymax)
     
     xEstimado=(xmax+xmin)/2
     yEstimado=(ymax+ymin)/2
-    #print("(xEstimado, yEstimado)")
-    #print(xEstimado,yEstimado)
     
     return xEstimado, yEstimado
-
 
 ######################################################################################
 #predicao ############################################################################
@@ -237,11 +198,8 @@ for image_path in TEST_IMAGE_PATHS:
   xEstimado, yEstimado = temTelefone(detection_boxes1, detection_classes1, detection_scores1, image.filename)
 
   if((xEstimado==-1)and(yEstimado==-1)):
-    #print("Não: " + str(image.filename))
-    print("NAO")
-    nao+=1
+    print("NAO ACHOU "+  str(image_path))
   else: 
-    #print("Sim: " + str(image.filename) + " x, y= " + str(xEstimado) + "-" + str(yEstimado))
-    print("SIM " + "xEst " + str(xEstimado) + " yEst " + str(yEstimado) + str(image_path))
+    print("ACHOU " + "xEst " + str(xEstimado) + " yEst " + str(yEstimado) + " "+  str(image_path))
     
 print("acabou")
