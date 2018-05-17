@@ -59,10 +59,11 @@ python3 export_inference_graph.py \
 - SEPARAR CÓDIGO EM 2 SCRIPTS PYTHON
 - script celularDetection.py
     -- ok criar versão zero
-    -- alterar forma de receber parâmetros
+    -- ok alterar forma de receber parâmetros
 - script celularTraining.py
     -- ok criar versão zero
     -- alterar forma de receber parametros
+- ARRUMAR CÓDIGOS, COLOCAR COMENTARIOS E HEADER COM EXPLICACAO DO TRABALHO
 - EMPACOTAR OS 2 SCRIPTS E OS OUTROS ARQUIVOS
 - RENOMEAR OS 2 SCRIPTS
 - ESCREVER RELATÓRIO
