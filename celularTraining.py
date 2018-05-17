@@ -52,7 +52,7 @@ if(saidaDeLs==0):#ja existe um diretorio entao preciso move-lo
 
 #=============================================================================
 #=============================================================================
-#Vou rodar o script de treinamento ===========================================
+#Vou rodar o script PARA EXPORTAR O TREINAMENTO JA FEITO =====================
 #=============================================================================
 #=============================================================================
 comando = "python3 export_inference_graph.py     --input_type image_tensor     --pipeline_config_path training/ssd_mobilenet_v1_pets.config     --trained_checkpoint_prefix training/model.ckpt-16767     --output_directory celular_inference_graph"
